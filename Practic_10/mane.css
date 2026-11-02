@@ -22,7 +22,9 @@ header {
     position: fixed;
     top: 10px;
     left: 10px;
-    width: 99%;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+    z-index: 1000;
     color: white;
 }
 
@@ -108,9 +110,7 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-body {
-    animation: pageAppear 0.8s ease-out both;
-}
+/* Анимация загрузки перенесена на контент, чтобы не смещать fixed-шапку. */
 
 /* 2. Подъём карточки и увеличение картинки при наведении */
 .box {
@@ -160,17 +160,20 @@ body {
 /* Адаптация шапки и карточек под узкий экран */
 @media (max-width: 850px) {
     header {
-        position: static;
-        width: auto;
+        position: relative;
+        top: auto;
+        left: auto;
+        width: calc(100% - 20px);
         flex-wrap: wrap;
         margin: 10px;
+        z-index: 1000;
     }
     #sign {
         flex-wrap: wrap;
         margin: 0 12px 12px;
         gap: 12px;
     }
-    #counter_1 { margin-top: 20px; }
+    #counter_1 { margin-top: 30px; }
     .counter { flex-wrap: wrap; padding: 0 10px; }
     .box { width: min(44%, 320px); }
 }
@@ -200,4 +203,20 @@ body {
 #counter_1 {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Исправление расположения шапки поверх карточек */
+@media (min-width: 851px) {
+    #counter_1 {
+        margin-top: 120px;
+    }
+}
+
+@media (max-width: 850px) {
+    header {
+        margin-bottom: 20px;
+    }
+    #counter_1 {
+        margin-top: 30px;
+    }
 }
