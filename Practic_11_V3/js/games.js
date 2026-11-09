@@ -1,5 +1,3 @@
-// Получаем исходный список игр из JSON.
-// Все изменения существуют только в памяти страницы и не сохраняются.
 async function getGames() {
     const response = await fetch('games.json');
 
