@@ -1,4 +1,3 @@
-// CRUD без сохранения: после обновления страницы список снова загружается из games.json.
 let games = [];
 let editingId = null;
 
@@ -11,8 +10,7 @@ const count = document.querySelector('#games-count');
 const message = document.querySelector('#message');
 
 async function loadGames() {
-    // admin.html находится в папке html, поэтому JSON лежит на уровень выше.
-    const jsonPath = new URL('../games.json', window.location.href);
+        const jsonPath = new URL('../games.json', window.location.href);
     const response = await fetch(jsonPath);
 
     if (!response.ok) {
@@ -42,8 +40,7 @@ function renderGames() {
         item.className = 'admin-game';
 
         const image = document.createElement('img');
-        // Пути из games.json заданы относительно корня проекта.
-        image.src = new URL('../' + game.image, window.location.href).href;
+                image.src = new URL('../' + game.image, window.location.href).href;
         image.alt = game.title;
         image.onerror = () => {
             image.alt = 'Изображение не найдено';
@@ -80,7 +77,6 @@ function renderGames() {
     });
 }
 
-// CREATE и UPDATE: изменения затрагивают только массив в памяти.
 form.addEventListener('submit', event => {
     event.preventDefault();
 
@@ -129,7 +125,6 @@ function startEdit(id) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// DELETE: удаляем игру только из массива в памяти.
 function deleteGame(id) {
     const game = games.find(item => item.id === id);
     if (!game) return;
