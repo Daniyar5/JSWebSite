@@ -1,6 +1,3 @@
-// Анимации для карточек, в том числе созданных динамически из JSON.
-
-// События 1 и 2: наведение мыши и уход с карточки.
 document.addEventListener('mouseover', event => {
     const card = event.target.closest('.box');
     if (card && !card.contains(event.relatedTarget)) {
@@ -15,7 +12,6 @@ document.addEventListener('mouseout', event => {
     }
 });
 
-// Событие 3: нажатие на кнопку «Играть».
 document.addEventListener('click', event => {
     const button = event.target.closest('.btn_play');
     if (!button) return;
@@ -28,8 +24,6 @@ document.addEventListener('click', event => {
     card.classList.add('play-click');
 });
 
-// Событие 4: появление рядов при прокрутке.
-// Наблюдатель запускается после того, как games.js создал карточки.
 const rowsObserver = new MutationObserver(() => {
     document.querySelectorAll('.games-list .counter:not([data-observed])').forEach(row => {
         row.dataset.observed = 'true';
