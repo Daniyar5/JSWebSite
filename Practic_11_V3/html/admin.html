@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление играми — WebGame</title>
+    <link rel="stylesheet" href="../mane.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+    <header>
+        <div id="title"><a href="../index.html"><h1><b id="w_web">Web</b>Game</h1></a></div>
+        <div id="sign">
+            <a href="../index.html" class="about">На главную</a>
+        </div>
+    </header>
+
+    <main class="admin-container">
+        <h1>Управление играми</h1>
+        <p class="admin-description">Здесь можно добавлять, просматривать, изменять и удалять игры.</p>
+
+        <section class="admin-form">
+            <h2 id="form-title">Добавить игру</h2>
+            <form id="game-form">
+                <label for="game-name">Название игры</label>
+                <input id="game-name" type="text" placeholder="Например, Minecraft" required>
+
+                <label for="game-image">Путь к изображению</label>
+                <input id="game-image" type="text" placeholder="img/images.jpg" required>
+
+                <label for="game-page">Ссылка на страницу игры</label>
+                <input id="game-page" type="text" placeholder="html/game.html">
+
+                <div class="form-buttons">
+                    <button type="submit" id="save-button">Добавить</button>
+                    <button type="button" id="cancel-edit" hidden>Отмена</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="admin-list">
+            <h2>Список игр</h2>
+            <p id="games-count"></p>
+            <div id="admin-games"></div>
+        </section>
+        <p id="message" role="status"></p>
+    </main>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>
